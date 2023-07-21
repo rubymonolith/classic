@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  include SuperformAssignment
+  include Superform::Rails::StrongParameters
 
   before_action :set_post, only: %i[ show edit update destroy ]
 

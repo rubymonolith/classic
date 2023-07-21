@@ -72,4 +72,4 @@ group :test do
 end
 
 gem "phlex-rails"
-gem "superform", "~> 0.2.0"
+gem "superform", "~> 0.3.0"

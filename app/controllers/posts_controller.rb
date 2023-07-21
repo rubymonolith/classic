@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  include SuperformAssignment
+
   before_action :set_post, only: %i[ show edit update destroy ]
 
   # GET /posts or /posts.json
@@ -36,8 +38,9 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+    assign params.require(:post), to: @post
+
     respond_to do |format|
-      assign params.require(:post), to: @post
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
@@ -62,16 +65,5 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
-    end
-
-    def assign(params, to:)
-      to.tap do |model|
-        Posts::Form.new(model).tap do |form|
-          # TODO: Figure out how to render this in a way that doesn't
-          # concat a string; just throw everything away.
-          render_to_string form
-          form.assign params
-        end
-      end
     end
 end

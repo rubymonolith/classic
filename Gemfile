@@ -71,5 +71,5 @@ group :test do
   gem "webdrivers"
 end
 
-gem "phlex-rails", "~> 1.0"
-gem "superform", "~> 0.1.0", github: "rubymonolith/superform"
+gem "phlex-rails"
+gem "superform", "~> 0.2.0"

@@ -1,3 +1,4 @@
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -72,4 +73,4 @@ group :test do
 end
 
 gem "phlex-rails"
-gem "superform", "~> 0.3.0"
+gem "superform", "~> 0.4.0"

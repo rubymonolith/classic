@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = assign params.require(:post), to: Post.new
+    @post = assign params.require(:post), to: Posts::Form.new(Post.new)
 
     respond_to do |format|
       if @post.save
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
-    assign params.require(:post), to: @post
+    assign params.require(:post), to: Posts::Form.new(@post)
 
     respond_to do |format|
       if @post.save
